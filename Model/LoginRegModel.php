@@ -4,7 +4,6 @@ class LoginRegModel
 {
 
     private $db;
-    private $error;
 
     function __construct(){
         include_once '../Include/DatabaseClass.php';
@@ -37,11 +36,21 @@ class LoginRegModel
 
     }
 
-    public function getError()
+    public function login($username, $password)
     {
-        return $this->error;
+        $sql = "SELECT * FROM user WHERE Username='$username'";
+        $row = $this->db->select($sql);
+        if ($row['Password'] === $password) {
+            session_start();
+            $_SESSION['id'] = $row['ID'];
+            $_SESSION['username']=$row['Username'];
+            $_SESSION['type'] = $row['UserType'];
+
+
+            return true;
+        }
+        
+        return false;
     }
-
-
 
 }
