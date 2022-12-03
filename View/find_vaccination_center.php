@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign-Up</title>
+    <title>Find Vaccination Center</title>
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/Style_sheet.css" rel="stylesheet">
 </head>

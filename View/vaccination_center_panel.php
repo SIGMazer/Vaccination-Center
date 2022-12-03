@@ -16,30 +16,6 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <div class = "card">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Reservation No. </th>
-                        <th scope="col">Name</th>
-                        <th scope="col">National ID</th>
-                        <th scope="col">Vaccine name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1007</td>
-                        <td>Ahmad</td>
-                        <td>---2102617</td>
-                        <td>dodo</td>
-                    </tr>
-                </tbody>
-            </table>
-            </div>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-6">
             <div class="card">
                 <p-head class="card-head">Find user</p-head>
@@ -63,6 +39,31 @@
                         <input type="submit" name="res_confirm" value="Confirm" class="btn btn-primary">
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class = "card">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Reservation No. </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">National ID</th>
+                        <th scope="col">Vaccine name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1007</td>
+                        <td>Ahmad</td>
+                        <td>---2102617</td>
+                        <td>dodo</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

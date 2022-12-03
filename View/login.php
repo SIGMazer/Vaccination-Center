@@ -20,7 +20,7 @@
               <input type="password" name="login_password" placeholder="password"/>
               <p><input type="submit" name="login_submit" value="Sign in" class="btn btn-primary"></p>
               </form>
-              <p3><a href="sign_up.php">Don't hava an account? Register</a></p3>
+              <p3><a href="sign_up.php">Don't have an account? Register</a></p3>
             </div>
           </div>
         </div>

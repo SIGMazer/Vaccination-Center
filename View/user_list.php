@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign-Up</title>
+    <title>User List</title>
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/Style_sheet.css" rel="stylesheet">
 </head>
@@ -23,20 +23,22 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
+                                <th scope="col">Username</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">City</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Contact No.</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">National ID</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Giza center</td>
-                                <td>Gize</td>
-                                <td>Giza Haram</td>
-                                <td>Government</td>
-                                <td>20339487271</td>
+                                <td>usrnm</td>
+                                <td>Person</td>
+                                <td>Cairo</td>
+                                <td>example@domain.com</td>
+                                <td>01234567890</td>
+                                <td>20000000000</td>
                             </tr>
                             </tbody>
                         </table>

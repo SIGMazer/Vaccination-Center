@@ -121,14 +121,14 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body centeralize-button">
-                <a href="login.php"><button name="center_find" class="btn btn-primary"  >Find vaccination center</button></a>
+                <a href="find_vaccination_center.php"><button name="center_find" class="btn btn-primary"  >Find vaccination center</button></a>
             </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body centeralize-button">
-                <a href="login.php"><button name="user_list" class="btn btn-primary"  >User's list</button></a>
+                <a href="user_list.php"><button name="user_list" class="btn btn-primary"  >User's list</button></a>
             </div>
         </div>
 
