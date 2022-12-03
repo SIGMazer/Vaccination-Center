@@ -49,22 +49,27 @@
                         if(strpos($fullUrl, "signup=empty") == true)
                         {
                             echo "<p class = 'error' style=color:red >Fill all inputs<p>";
+                            exit();
                         }
                         if(strpos($fullUrl, "signup=invalidpass") == true)
                         {
                             echo "<p class = 'error' style=color:red >Password should contain number, be at least 8 character long<p>";
+                            exit();
                         }
                         if(strpos($fullUrl, "signup=invalidemail") == true)
                         {
                             echo "<p class = 'error' style=color:red >Invalid email<p>";
+                            exit();
                         }
                         if(strpos($fullUrl, "signup=invalidphone") == true)
                         {
                             echo "<p class = 'error' style=color:red >Invalid phone number<p>";
+                            exit();
                         }
                         if(strpos($fullUrl, "signup=invalidID") == true)
                         {
                             echo "<p class = 'error' style=color:red >Invalid national ID<p>";
+                            exit();
                         }
                     }
                 ?>
