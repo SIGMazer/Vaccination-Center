@@ -13,7 +13,7 @@
         <div class="card">
             <p-head class="card-head"><strong>Sign up</strong></p-head>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="../Controller/RegisterController.php" method="post">
                     <p>Username</p>
                     <input  type="text" name="reg_username" placeholder="username">
                     <p>Password</p>
