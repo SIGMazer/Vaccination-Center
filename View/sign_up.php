@@ -37,6 +37,37 @@
                     </select></p>
                     <p><input type="submit" value="Sign up" name="reg_submit" class="btn btn-primary"></p>
                 </form>
+                <?php
+                    $fullUrl =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+
+                    if(!isset($_GET['signup'] ))
+                    {
+                        exit();
+                    }
+                    else
+                    {
+                        if(strpos($fullUrl, "signup=empty") == true)
+                        {
+                            echo "<p class = 'error' style=color:red >Fill all inputs<p>";
+                        }
+                        if(strpos($fullUrl, "signup=invalidpass") == true)
+                        {
+                            echo "<p class = 'error' style=color:red >Password should contain number, be at least 8 character long<p>";
+                        }
+                        if(strpos($fullUrl, "signup=invalidemail") == true)
+                        {
+                            echo "<p class = 'error' style=color:red >Invalid email<p>";
+                        }
+                        if(strpos($fullUrl, "signup=invalidphone") == true)
+                        {
+                            echo "<p class = 'error' style=color:red >Invalid phone number<p>";
+                        }
+                        if(strpos($fullUrl, "signup=invalidID") == true)
+                        {
+                            echo "<p class = 'error' style=color:red >Invalid national ID<p>";
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
