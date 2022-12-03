@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="card">
-                    <p class="card-head">Add city</p>
+                    <p-head class="card-head">Add city</p-head>
                     <div class="card-body">
                         <form action = "" method="post">
                             <p>Name</p>
@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-7">
                 <div class="card">
-                    <p class="card-head">Add vaccine</p>
+                    <p-head class="card-head">Add vaccine</p-head>
                     <div class="card-body">
                         <form action="" method="post">
                             <div class="row">

@@ -11,7 +11,7 @@
         <div class="col-2"></div>
         <div class="col">
           <div class="card">
-            <p class="card-head"><strong>Sign in</strong></p>
+            <p-head class="card-head"><strong>Sign in</strong></p-head>
             <div class="card-body">
               <form action="" method="post">
               <p>Username</p>

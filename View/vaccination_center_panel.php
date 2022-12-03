@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class = "card">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Reservation No. </th>
@@ -42,7 +42,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <p class="card-head">Find user</p>
+                <p-head class="card-head">Find user</p-head>
                 <div class="card-body">
                     <form action="" method="post">
                         <p>Reservation No. : </p>

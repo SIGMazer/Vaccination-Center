@@ -4,7 +4,7 @@ input::placeholder{
 }
 
 input{
-    text-align: left;
+    text-align: center;
     display: grid;
     font-size: 20px;
 }
@@ -54,13 +54,15 @@ p{
     text-align: right;
     margin: 5px;
     font-size: 25px;
-    border: solid #58005A;
     color: #58005A;
 }
+.btn:hover{
+    border: solid #58005A;
+}
 .card-head{
+    border: solid #58005A;
     text-align: center;
     background-color: #d0e0e3;
-    font-size: 30px;
     border-radius: 10px;
 }
 .card-head::marker{
@@ -68,4 +70,15 @@ p{
 }
 .centeralize-button{
     text-align: center;
+}
+p-head{
+    font-size: 40px;
+    color: #000000;
+    padding: 5px;
+    margin: 15px;
+
+}
+
+table:hover{
+    border: solid #58005A;
 }
