@@ -1,0 +1,84 @@
+input::placeholder{
+    text-align: center;
+    color: #58005A;
+}
+
+input{
+    text-align: center;
+    display: grid;
+    font-size: 20px;
+}
+
+body{
+    background-color: #d0e0e3;
+    display: grid;
+}
+.card_header{
+    border: solid #58005A;
+    background-color: #318ce7;
+    margin: 10px;
+    text-align: center;
+    padding:20px;
+    border-radius: 20px;
+    display: grid;
+}
+.card{
+    border: solid #58005A;
+    background-color: #318ce7;
+    margin: 10px;
+    text-align: center;
+    padding:20px;
+    border-radius: 20px;
+    display: grid;
+    box-shadow: #58005A;
+}
+.card-body{
+    border: solid #58005A;
+    border-radius: 10px;
+    background-color: #d0e0e3;
+}
+
+
+p{
+    color: #000000;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+
+}
+.btn-primary{
+    background-color: #6fa8dc;
+}
+
+.btn{
+    text-align: right;
+    margin: 5px;
+    font-size: 25px;
+    color: #58005A;
+}
+.btn:hover{
+    border: solid #58005A;
+}
+.card-head{
+    border: solid #58005A;
+    text-align: center;
+    background-color: #d0e0e3;
+    border-radius: 10px;
+}
+.card-head::marker{
+    background-color: #638d8e;
+}
+.centeralize-button{
+    text-align: center;
+}
+p-head{
+    font-size: 40px;
+    color: #000000;
+    padding: 5px;
+    margin: 15px;
+
+}
+
+table:hover{
+    border: solid #58005A;
+}
