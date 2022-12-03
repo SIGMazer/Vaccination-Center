@@ -49,7 +49,7 @@ class LoginRegModel
 
             return true;
         }
-        
+
         return false;
     }
 
