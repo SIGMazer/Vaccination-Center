@@ -22,7 +22,7 @@
         {
             if (!preg_match('@[a-z]@', $password) || !preg_match('@[0-9]@', $password) || strlen($password) < 8)
             {
-                header("location: http://localhost/vaccination-center/View/sign_up.php?signup=invalidpass");
+                header("location: ../View/sign_up.php?signup=invalidpass");
                 exit();
             }
 
@@ -30,27 +30,27 @@
             {
                 if(!filter_var($email, FILTER_VALIDATE_EMAIL))
                 {
-                    header("location: http://localhost/vaccination-center/View/sign_up.php?signup=invalidemail");
+                    header("location: ../View/sign_up.php?signup=invalidemail");
                     exit();
                 }
                 else
                 {
                    if(preg_match('@[A-Z]@', $phoneNUmber) ||preg_match('@[a-z]@', $phoneNUmber))
                    {
-                       header("location: http://localhost/vaccination-center/View/sign_up.php?signup=invalidphone");
+                       header("location: ../View/sign_up.php?signup=invalidphone");
                        exit();
                    }
                    else
                    {
                        if(preg_match('@[A-Z]@', $nationalID) ||preg_match('@[a-z]@', $nationalID))
                        {
-                           header("location: http://localhost/vaccination-center/View/sign_up.php?signup=invalidID");
+                           header("location: ../View/sign_up.php?signup=invalidID");
                            exit();
                        }
                        else
                        {
                            $reg->registeration($userName,$password,$nationalID,$name,$cityID,$email,$phoneNUmber);
-                           header("location: http://localhost/vaccination-center/View/login.php");
+                           header("location: ../View/login.php");
                        }
 
                    }
@@ -61,7 +61,7 @@
     }
     else
     {
-        header("location: http://localhost/vaccination-center/View/sign_up.php");
+        header("location: ../View/sign_up.php");
         exit();
     }
 
