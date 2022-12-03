@@ -1,0 +1,16 @@
+<?php
+function echoLandingTable() {
+    include_once 'Include/DatabaseClass.php';
+    $db = new database();
+    $query = "SELECT vaccinationcenter.Name as 'Name', city.Name as 'City', Address, ContactNum, Type FROM vaccinationcenter INNER JOIN city ON city.ID = vaccinationcenter.CityID";
+    $centerList = $db->display($query);
+    $centerSize = $db->check($query);
+    for ($x = 0; $x < $centerSize; $x++) {
+        echo "<tr>";
+        echo "<td>" . $centerList[$x]['Name'] . "</td>";
+        echo "<td>" . $centerList[$x]['City']. "</td>";
+        echo "<td>" . $centerList[$x]['Address']. "</td>";
+        echo "<td>" . $centerList[$x]['ContactNum']. "</td>";
+        echo "<td>" . $centerList[$x]['Type']. "</td>";
+    }
+}
