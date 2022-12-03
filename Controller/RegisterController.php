@@ -1,6 +1,6 @@
 <?php
 
-    if(isset($_POST["submit"]))
+    if(isset($_POST["reg_submit"]))
     {
         include '../Model/LoginRegModel.php';
 
@@ -11,6 +11,5 @@
         if(!$res) {
             echo "error";
         }
-
     }
 
