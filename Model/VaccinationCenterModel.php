@@ -9,6 +9,9 @@ Class VaccinationCenterModel {
     function __construct() {
         include_once'../Include/DatabaseClass.php';
         $this->db = new database();
+        $data = $this->db->select('select * from vaccinationcenter where UserID = "$_SESSION["type"]"');
+        $this->name = $data['Name'];
+        $this->contactNum = $data['ContactNum'];
     }
 
     function  getName(){
@@ -16,39 +19,45 @@ Class VaccinationCenterModel {
     }
 
     function  listReservations(){
-    # 3 join
-        $list = $this->db->select("select nationalID as 'Vaccine User National ID', Name as 'Name Of Receiver', ID.VaccinationCenter as 'Reservation Number', Name.Vaccine as 'Vaccine Name' from VaccineUser inner join VaccineReservation on VaccineUser.nationalID = VaccineReservation.ID inner join Vaccine on Vaccine.ID = VaccineReservation.VaccineID");
+
+        $list = $this->db->select("select nationalID as 'Vaccine User National ID', vaccineuser.Name as 'Name Of Receiver', 
+                                    vaccinereservation.ID as 'Reservation Number', vaccine.Name as 'Vaccine Name' from vaccineuser 
+                                    inner join vaccinereservation on vaccineuser.nationalID = vaccinereservation.ID 
+                                    inner join vaccine on vaccine.ID = vaccinereservation.VaccineID 
+                                    where vaccinereservation.Center_ContactNum = {$this->contactNum} AND Date = CURDATE()");
         return $list;
     }
 
     function  findReservation($reservationNumber){
-        ## query to find vaccine id
-         $this->$reservationNumber;
-         $nationalID = $this->db->select('select user_nationalID from vaccineReservation where ID = $reservationNumber');
-         $nameOfUser = $this->db->select('select Name from VaccineUser where nationalId = $nationalID[0]');
-         $nameOfVaccine = $this->db->select('select Name from Vaccine where Vaccine.ID = VaccineReservation.VaccineID AND VaccineReservation.ID = $reservationNumber');
-         echo $nationalID['user_nationalID'], $nameOfUser['Name'], $nameOfVaccine['Name'];
+
+        $reservation = $this->db->select("select * from vaccinereservation where ID = {$reservationNumber}");
+        $nationalID = $reservation['User_NationalID'];
+        $nameOfUser = $this->db->select("select Name from VaccineUser where nationalID = {$nationalID}")["Name"];
+        $nameOfVaccine = $this->db->select("select Name from Vaccine where Vaccine.ID = {$reservation['VaccineID']}")["Name"];
+
+        session_start();
+        $_SESSION['ResID']= $reservationNumber;
+        $_SESSION['NatID']= $nationalID;
+        $_SESSION['NameUser']= $nameOfUser;
+        $_SESSION['NameVac']= $nameOfVaccine;
     }
 
     function  confirmReservation($reservationNumber){
-        #vac user, increment
-        # if dose no = 1 : set secdosedate -> 7asab el gap
-        /*
-         * save gap in SESSION
-         *
-         * dose date = today
-         *
-         * date after gap
-         * */
-        # delete reservation
-        # header function
 
-        #make query to update the DoseNumber
-        #if doseNo = 1
-        #calculate second dose date, then add//update (doseNo + SecondDoseDate) to query
-        #if dose No = 2
-        # remove whole row -- use query to remove (id) from reservation
-        #delete from vacres where userid = $reservationNumber
+        $doseNum = $this->db->select("select DoseNumber from vaccineuser where nationalID = {$_SESSION['NatID']}")["DoseNumber"]+1;
+        $this->db->update("update vaccineuser set DoseNumber = {$doseNum} where nationalID = {$_SESSION['NatID']}");
+
+        if($doseNum==1)
+        {
+            $gap = $this->db->select("select Gap from vaccine where Name = {$_SESSION['NameVac']}")["Gap"];
+            $this->db->update("update vaccineuser set SecondDoseDate = DATE_ADD(CURDATE(),INTERVAL {$gap} DAY) where nationalID = {$_SESSION['NatID']}");
+        }
+        else if ($doseNum==2)
+        {
+            //upload
+        }
+
+        $this->db->delete("delete from vaccinereservation where ID = {$_SESSION['ResID']}");
     }
 }
 #
