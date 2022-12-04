@@ -24,9 +24,9 @@ Class VaccinationCenterModel {
     function  findReservation($reservationNumber){
         ## query to find vaccine id
          $this->$reservationNumber;
-         $nationalID = select('select user_nationalID from vaccineReservation where ID = $reservationNumber');
-         $nameOfUser = select('select Name from VaccineUser where nationalId = $nationalID[0]');
-         $nameOfVaccine = select('select Name from Vaccine where Vaccine.ID = VaccineReservation.VaccineID AND VaccineReservation.ID = $reservationNumber');
+         $nationalID = $this->db->select('select user_nationalID from vaccineReservation where ID = $reservationNumber');
+         $nameOfUser = $this->db->select('select Name from VaccineUser where nationalId = $nationalID[0]');
+         $nameOfVaccine = $this->db->select('select Name from Vaccine where Vaccine.ID = VaccineReservation.VaccineID AND VaccineReservation.ID = $reservationNumber');
          echo $nationalID['user_nationalID'], $nameOfUser['Name'], $nameOfVaccine['Name'];
     }
 
