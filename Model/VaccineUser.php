@@ -8,11 +8,12 @@ class vaccineuser {
     private $reservationDate;
     private $reservationNumber;
     private $center_contactNum;
+    date_default_timezone_set("Africa/Cairo");
     
     function __construct() {
 		include_once'../Include/DatabaseClass.php';		
 		$this->db = new database();
-        $sql = "SELECT * FROM vaccineuser,vaccinereservation where $_Session['UserID ']";
+        $sql = "SELECT * FROM vaccineuser,vaccinereservation where $_Session['UserID']";
         $row = $this->db->select($sql);
         $this->name=$row['Name'];
         $this->vaccine_ID=$row['VaccineID'];
@@ -36,15 +37,20 @@ class vaccineuser {
     public function reserveDose(center_contactNum,vaccine_ID,reservationDate){
         $this->center_contactNum = $center_contactNum;
 		$this->vaccine_ID = $vaccine_ID;
-        $this->reservationDate = $reservationDate;
-
-        
-        if ($doses==1) {
-
+        $sql = "SELECT * FROM vaccineuser";
+  
+        if ($doses==0) {
+            $this->reservationDate = date_create($reservationDate);
             $row = $this->db->insert($sql);
-
             $this->db->close();	
             return true;
+        }
+        else if($doses==1){
+            $SecondDoseDate= "SELECT SecondDoseDate from vaccineuser";
+            $diff= date_diff($reservationDate,$SecondDoseDate);
+            if($diff->days <=10){
+                retuen true;
+            }
         }
         $this->db->close();	
         return false;
