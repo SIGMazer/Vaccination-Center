@@ -6,11 +6,19 @@ class vaccineuser {
     private $center_contactNum;
     private $vaccine_ID;
     private $reservationDate;
-    private $resurvationNumber;
+    private $reservationNumber;
+    private $center_contactNum;
     
     function __construct() {
 		include_once'../Include/DatabaseClass.php';		
 		$this->db = new database();
+        $sql = "SELECT * FROM vaccineuser,vaccinereservation where $_Session['UserID ']";
+        $row = $this->db->select($sql);
+        $this->name=$row['Name'];
+        $this->vaccine_ID=$row['VaccineID'];
+        $this->reservationDate=$row['Date'];
+        $this->doses=$row['DoseNumber'];
+        $this->center_contactNum=$row['Center_ContactNum'];   
 	}
 
     public function getName(){
@@ -19,41 +27,38 @@ class vaccineuser {
     public function getDoses(){
         return $this->doses;
     }
-    public function getResetveStatus(){
+    public function getReserveStatus(){
         return $this->reserveStatus;
     }
     public function getReservation(){
-        return $resurvationNumber;
+        return $reservationNumber;
     }
     public function reserveDose(center_contactNum,vaccine_ID,reservationDate){
         $this->center_contactNum = $center_contactNum;
 		$this->vaccine_ID = $vaccine_ID;
         $this->reservationDate = $reservationDate;
-		// $sql = "SELECT * FROM VaccineUser";
-		// $row = $this->db->select($sql);
+
         
-        // if ($row['reservationDate'] === $this->reservationDate) {
-        //     session_start();
-        //     $_SESSION['center_contactNum'] = $row['center_contactNum'];
-        //     $_SESSION['vaccine_ID']=$row['vaccine_ID'];
-        //     $_SESSION['reservationDate'] = $row['reservationDate'];
-            
-                
-        //     $this->db->close();	
-        //     return true;
-        // }
-        // $this->db->close();	
-        // return false;
-    
+        if ($doses==1) {
+
+            $row = $this->db->insert($sql);
+
+            $this->db->close();	
+            return true;
+        }
+        $this->db->close();	
+        return false;
     }
     public function listVaccines(){
-        $sql = "SELECT * FROM VaccineUser";
-        ?><select><?php
-        //$result = $this->conn->query($sql)
-        while($result = mysqli_fetch_array($sql)){
-               ?><option><?php echo $result['title'];?> </option>
-        <?php        
-        }
-    }
+        $sql = "SELECT * FROM vaccine";
+        $vaccineList= $db->display($sql);
+        $vaccineList= $db->check($sql);
+        for($x=0;$x<$vaccineList;$x++){
+            echo "<tr>";
+            echo "<td>". $vaccineList[$x]['Name']."</td>";
+            echo "<td>". $vaccineList[$x]['Gap']."</td>";
+            echo "<td>". $vaccineList[$x]['Precautions']."</td>";
+        }
+    }
 }
 ?>
