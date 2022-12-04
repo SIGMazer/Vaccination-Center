@@ -1,3 +1,7 @@
+<?php
+include "../Controller/AdminController.php";
+include "../Controller/MiscController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +25,14 @@
                 <div class="card">
                     <p-head class="card-head">Add city</p-head>
                     <div class="card-body">
-                        <form action = "" method="post">
+                        <form action = "../Controller/AdminController.php" method="post">
                             <p>Name</p>
                             <p><input type="text" name="city_name" placeholder="City name"></p>
+                            <span>
+                                <?php
+                                    echoError("cerr");
+                                ?>
+                            </span>
                             <p><input type="submit" name="city_add" value="Add" class="btn btn-primary"></p>
                         </form>
                     </div>
@@ -33,7 +42,7 @@
                 <div class="card">
                     <p-head class="card-head">Add vaccine</p-head>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action = "../Controller/AdminController.php" method="post">
                             <div class="row">
                                 <div class="col">
                                     <p>Name</p>
@@ -48,6 +57,12 @@
                                     <p><input type="text" name="vaccine_precautions" placeholder="Precautions"></p>
                                 </div>
                             </div>
+                            <span>
+                                <?php
+                                echoError("verr");
+                                ?>
+                            </span>
+                            <br>
                             <input type="submit" name="vaccine_add" value="Add" class="btn btn-primary">
                         </form>
                 </div>
@@ -58,21 +73,20 @@
             <div class="col-12">
                 <div class="card">
                     <p class="card-head"><strong>Add vaccination center</strong></p>
-                        <form action = "" method="post">
+                        <form action = "../Controller/AdminController.php" method="post">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
                                         <p>Name</p>
-                                        <p><input type="text" name="canter_name" placeholder="Name"></p>
+                                        <p><input type="text" name="center_name" placeholder="Name"></p>
                                     </div>
 
                                     <div class="col">
                                         <p>City:</p>
                                         <p><select name="center_city" id="city-names2">
-                                            <option>cairo</option>
-                                            <option>helwan</option>
-                                            <option>alex</option>
-                                            <option>giza</option>
+                                            <?php
+                                                echoCityList();
+                                            ?>
                                         </select></p>
                                     </div>
 
@@ -92,7 +106,7 @@
                                 <div class="col">
                                     <p>Type:</p>
                                     <p><label for="type-names"></label>
-                                        <select name="center_name" id="type-names">
+                                        <select name="center_type" id="type-names">
                                             <option>Government</option>
                                             <option>Private</option>
                                         </select>
@@ -111,6 +125,12 @@
                             </div>
                         </div>
                         <div class="card-body centeralize-button">
+                            <span>
+                                <?php
+                                echoError("vcerr");
+                                ?>
+                            </span>
+                            <br>
                             <input type="submit" value="Add" name="center_add" class="btn btn-primary">
                         </div>
                     </form>

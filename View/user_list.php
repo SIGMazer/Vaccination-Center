@@ -1,3 +1,6 @@
+<?php
+include "../Controller/userlistController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,14 +35,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>usrnm</td>
-                                <td>Person</td>
-                                <td>Cairo</td>
-                                <td>example@domain.com</td>
-                                <td>01234567890</td>
-                                <td>20000000000</td>
-                            </tr>
+                                <?php
+                                    $admin->listUsers();
+                                ?>
                             </tbody>
                         </table>
                     </div>

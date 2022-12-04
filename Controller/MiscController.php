@@ -14,3 +14,14 @@ function echoLandingTable() {
         echo "<td>" . $centerList[$x]['Type']. "</td>";
     }
 }
+
+function echoCityList() {
+    include_once '../Include/DatabaseClass.php';
+    $db = new database();
+    $query = "SELECT * FROM city";
+    $cityList = $db->display($query);
+    $citySize = $db->check($query);
+    for ($x = 0; $x < $citySize; $x++) {
+        echo '<option value = "' . $cityList[$x]['ID'] . '">' . $cityList[$x]['Name'] . '</option>';
+    }
+}
