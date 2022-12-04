@@ -5,7 +5,6 @@ input::placeholder{
 
 input{
     text-align: center;
-    display: grid;
     font-size: 20px;
 }
 
@@ -68,7 +67,7 @@ p{
 .card-head::marker{
     background-color: #638d8e;
 }
-.centeralize-button{
+.centralize-button{
     text-align: center;
 }
 p-head{
