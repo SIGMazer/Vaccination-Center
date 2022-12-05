@@ -8,15 +8,15 @@
 		    $vaccine_ID=$_POST['reserve_vaccine'];
             $reservationDate=$_POST['reserve_date'];
 		    $vaccineuser = new vaccineuser();
-		    $true = $vaccineuser->reserveDose(center_contactNum,vaccine_ID,reservationDate);
+		    $true = $vaccineuser->reserveDose($center_contactNum,$vaccine_ID,$reservationDate);
 		
-		    if ($true == true) {
-                $resNo=$vaccineuser->getReservation();
-                echo $resNo;
-		    }
-		    else {
-			    return false;
-		    }
+		    if ($true) {
+                //The user has successfully registered a dose of vaccine
+                header("location: ../View/user_panel.php");
+		    } else {
+                //The user has encountered an error (second dose error)
+                header("location: ../View/user_panel.php?err=0");
+            }
 	    }
     }
 	
