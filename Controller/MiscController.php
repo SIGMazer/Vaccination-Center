@@ -12,6 +12,7 @@ function echoLandingTable() {
         echo "<td>" . $centerList[$x]['Address']. "</td>";
         echo "<td>" . $centerList[$x]['ContactNum']. "</td>";
         echo "<td>" . $centerList[$x]['Type']. "</td>";
+        echo "</tr>";
     }
 }
 
@@ -23,5 +24,15 @@ function echoCityList() {
     $citySize = $db->check($query);
     for ($x = 0; $x < $citySize; $x++) {
         echo '<option value = "' . $cityList[$x]['ID'] . '">' . $cityList[$x]['Name'] . '</option>';
+    }
+}
+
+function echoCityName() {
+    session_start();
+    if (isset($_SESSION["cID"])) {
+        include_once '../Include/DatabaseClass.php';
+        $db = new database();
+        $name = $db->select("SELECT * FROM city where ID = {$_SESSION["cID"]}")['Name'];
+        echo $name;
     }
 }

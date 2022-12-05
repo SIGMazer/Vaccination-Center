@@ -1,3 +1,7 @@
+<?php
+include "../Controller/vclistController.php";
+include "../Controller/MiscController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,14 +25,13 @@
                 <div class="card">
                     <div class="card-body">
                         <p-head>Find Vaccination center</p-head>
-                        <form action="" method="post">
+                        <form action="../Controller/vclistController.php" method="post">
                             <p>City :
                                 <label for="city-names"></label>
-                                <select name="city_find" id="city-names">
-                                    <option >cairo</option>
-                                    <option >spaniol</option>
-                                    <option >alex</option>
-                                    <option >giza</option>
+                                <select name="city_find" id="city-names" >
+                                    <?php
+                                        echoCityList();
+                                    ?>
                                 </select></p>
                             <input type="submit" value="Search" name="city_search" class="btn btn-primary">
                         </form>
@@ -37,52 +40,39 @@
             </div>
         </div>
 
-
-
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-head">
-                                <form action="" method="post">
-                                    <p-head>Vaccination center details:
-                                        <input type="submit" value="Update" name="city_update" class="btn btn-primary">
-                                        <input type="submit" value="Delete" name="city_delete" class="btn btn-primary">
-                                    </p-head>
-                                </form>
-                            </div>
-                        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-head">
+                            <p-head>Results in <?php echoCityName(); ?>
+                            </p-head>
+                        </form>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Reservation No. </th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">National ID</th>
-                                        <th scope="col">Vaccine name</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1007</td>
-                                        <td>Ahmad</td>
-                                        <td>---2102617</td>
-                                        <td>dodo</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-                                <form action="" method="post">
-                                    <input type="submit" value="Update" name="update_submit" class="btn btn-primary">
-                                </form>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <span><?php echoError(); ?></span>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Contact number</th>
+                                    <th scope="col">Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php search(); ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+            </div>
+        </div>
 
 
 
