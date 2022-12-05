@@ -53,10 +53,6 @@ table{
     text-align: center;
 }
 
-table:hover{
-    border: solid #20c997;
-}
-
 td , th{
     padding: 15px 20px;
     text-align: center;
