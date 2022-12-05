@@ -32,24 +32,27 @@ class vaccineuser {
         return $this->reserveStatus;
     }
     public function getReservation(){
+        
         return $reservationNumber;
     }
     public function reserveDose(center_contactNum,vaccine_ID,reservationDate){
+        $sql = "INSERT * FROM vaccinereservation,vaccineuser where vaccineuser['NationalID']= vaccinereservation['User_NationalID']";
         $this->center_contactNum = $center_contactNum;
 		$this->vaccine_ID = $vaccine_ID;
-        $sql = "SELECT * FROM vaccineuser";
-  
+        $this->reservationDate = date_create($reservationDate);
         if ($doses==0) {
-            $this->reservationDate = date_create($reservationDate);
             $row = $this->db->insert($sql);
-            $this->db->close();	
+            $reservationNumber="SELECT * FROM vaccinereservation,vaccineuser where vaccineuser['NationalID']= vaccinereservation['User_NationalID']";
             return true;
+            $this->db->close();	
         }
         else if($doses==1){
+            $row = $this->db->select($sql);
             $SecondDoseDate= "SELECT SecondDoseDate from vaccineuser";
             $diff= date_diff($reservationDate,$SecondDoseDate);
-            if($diff->days <=10){
-                retuen true;
+            if($diff->days >0){
+                
+                return getReservation();
             }
         }
         $this->db->close();	
