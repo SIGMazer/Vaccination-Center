@@ -14,8 +14,8 @@
 </div>
 
 <div class="row">
-    <div class="col-1"></div>
-    <div class="col-5">
+
+    <div class="col">
         <div class="cardbody">
             <form action="" method="post">
                 <p>Reservation No. : </p>
@@ -24,8 +24,10 @@
             </form>
         </div>
     </div>
-    <div class="col-5">
-        <div class="cardbody row">
+</div>
+<div class="row">
+    <div class="col">
+        <div class="cardbody">
             <p>
             <form action="" method="post">
                 <p class="card-text">User's name : </p>
@@ -36,7 +38,6 @@
             </p>
         </div>
     </div>
-    <div class="col-1"></div>
 </div>
 
 
