@@ -14,9 +14,11 @@ Class VaccinationCenterModel {
         $this->contactNum = $data['ContactNum'];
     }
 
+
     function  getName(){
         return $this->name;
     }
+
 
     function  listReservations(){
 
@@ -27,6 +29,7 @@ Class VaccinationCenterModel {
                                     where vaccinereservation.Center_ContactNum = {$this->contactNum} AND Date = CURDATE()");
         return $list;
     }
+
 
     function  findReservation($reservationNumber){
 
@@ -42,6 +45,7 @@ Class VaccinationCenterModel {
         $_SESSION['NameVac']= $nameOfVaccine;
     }
 
+
     function  confirmReservation($reservationNumber){
 
         $doseNum = $this->db->select("select DoseNumber from vaccineuser where nationalID = {$_SESSION['NatID']}")["DoseNumber"]+1;
@@ -54,10 +58,10 @@ Class VaccinationCenterModel {
         }
         else if ($doseNum==2)
         {
-            //upload
+
         }
 
         $this->db->delete("delete from vaccinereservation where ID = {$_SESSION['ResID']}");
     }
+
 }
-#
