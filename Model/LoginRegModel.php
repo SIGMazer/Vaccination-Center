@@ -53,4 +53,43 @@ class LoginRegModel
         return false;
     }
 
-}
+
+     public static  function errorHandler($msg)
+    {
+
+
+        $check = $msg;
+
+        if ($check == 'empty') {
+            echo "<p class = 'error' style=color:red >Fill all inputs<p>";
+            exit();
+        }
+        if ($check == 'invalidData') {
+            echo "<p class = 'error' style=color:red >Username or password wrong<p>";
+            exit();
+        }
+        if($check == "invalidpass" )
+        {
+            echo "<p class = 'error' style=color:red >Password should contain number, be at least 8 character long<p>";
+            exit();
+        }
+        if($check == "invalidemail")
+        {
+            echo "<p class = 'error' style=color:red >Invalid email<p>";
+            exit();
+        }
+        if($check == "invalidphone")
+        {
+            echo "<p class = 'error' style=color:red >Invalid phone number<p>";
+            exit();
+        }
+        if($check == "invalidID")
+        {
+            echo "<p class = 'error' style=color:red >Invalid national ID<p>";
+            exit();
+        }
+
+
+    }
+
+    }

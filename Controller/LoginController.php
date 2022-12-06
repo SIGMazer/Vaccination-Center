@@ -10,7 +10,6 @@
 
         $username = $_POST['login_username'];
         $password = $_POST['login_password'];
-
         if (empty($username) || empty($password)) {
             header("location:http:../View/login.php?login=empty");
             exit();
@@ -46,6 +45,8 @@
         header("location: ../View/login.php");
         exit();
     }
+
+
 
 
 

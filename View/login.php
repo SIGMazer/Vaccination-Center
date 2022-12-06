@@ -1,3 +1,7 @@
+<?php
+include "../Model/LoginRegModel.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,26 +26,9 @@
               </form>
                 <?php
                 if(!isset($_GET['login']))
-                {
                     exit();
-                }
                 else
-                {
-                    $check = $_GET['login'];
-
-                    if($check =='empty')
-                    {
-                        echo "<p class = 'error' style=color:red >Fill all inputs<p>";
-                        exit();
-                    }
-                    if($check =='invalidData')
-                    {
-                        echo "<p class = 'error' style=color:red >Username or password wrong<p>";
-                        exit();
-                    }
-                }
-
-
+                  LoginRegModel::errorHandler($_GET['login']);
                 ?>
               <p3><a href="sign_up.php">Don't have an account? Register</a></p3>
             </div>
