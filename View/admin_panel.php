@@ -11,28 +11,25 @@
 <body>
         <div class="row">
           <div class="col-md-12">
-            <div class="card_header">
-              <h1>Admin name</h1>
+            <div class="cardhead">
+              <h>Admin name</h>
             </div>
           </div>
         </div>
         <div class="row">
-            <div class="col-md-5">
-                <div class="card">
-                    <p-head class="card-head">Add city</p-head>
-                    <div class="card-body">
-                        <form action = "" method="post">
-                            <p>Name</p>
-                            <p><input type="text" name="city_name" placeholder="City name"></p>
-                            <p><input type="submit" name="city_add" value="Add" class="btn btn-primary"></p>
-                        </form>
-                    </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+                <div class="cardbody">
+                    <p class="card-head">Add city</p>
+                    <form action = "" method="post">
+                        <p>Name</p>
+                        <p><input type="text" name="city_name" placeholder="City name"></p>
+                        <p><input type="submit" name="city_add" value="Add" class="btn btn-primary"></p>
+                    </form>
                 </div>
             </div>
-            <div class="col-md-7">
-                <div class="card">
-                    <p-head class="card-head">Add vaccine</p-head>
-                    <div class="card-body">
+            <div class="col">
+                <div class="cardbody">
                         <form action="" method="post">
                             <div class="row">
                                 <div class="col">
@@ -51,19 +48,19 @@
                             <input type="submit" name="vaccine_add" value="Add" class="btn btn-primary">
                         </form>
                 </div>
-                </div>
-        </div>
             </div>
+            <div class="col-1"></div>
+        </div>
         <div class="row" >
             <div class="col-12">
-                <div class="card">
-                    <p class="card-head"><strong>Add vaccination center</strong></p>
+                <div class="cardbody">
+                    <p></p>
                         <form action = "" method="post">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
                                         <p>Name</p>
-                                        <p><input type="text" name="canter_name" placeholder="Name"></p>
+                                        <p><input type="text" name="center_name" placeholder="Name"></p>
                                     </div>
 
                                     <div class="col">
@@ -119,17 +116,13 @@
    </div>
 <div class="row">
     <div class="col-6">
-        <div class="card">
-            <div class="card-body centeralize-button">
+        <div class="cardbody">
                 <a href="find_vaccination_center.php"><button name="center_find" class="btn btn-primary"  >Find vaccination center</button></a>
-            </div>
         </div>
     </div>
     <div class="col-6">
-        <div class="card">
-            <div class="card-body centeralize-button">
+        <div class="cardbody">
                 <a href="user_list.php"><button name="user_list" class="btn btn-primary"  >User's list</button></a>
-            </div>
         </div>
 
     </div>
