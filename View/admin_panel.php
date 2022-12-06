@@ -60,7 +60,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <p>Name</p>
-                                        <p><input type="text" name="canter_name" placeholder="Name"></p>
+                                        <p><input type="text" name="center_name" placeholder="Name"></p>
                                     </div>
 
                                     <div class="col">
