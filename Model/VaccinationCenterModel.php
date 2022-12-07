@@ -21,13 +21,21 @@ Class VaccinationCenterModel {
 
 
     function  listReservations(){
-
-        $list = $this->db->select("select nationalID as 'Vaccine User National ID', vaccineuser.Name as 'Name Of Receiver', 
+        $query = "select nationalID as 'Vaccine User National ID', vaccineuser.Name as 'Name Of Receiver', 
                                     vaccinereservation.ID as 'Reservation Number', vaccine.Name as 'Vaccine Name' from vaccineuser 
                                     inner join vaccinereservation on vaccineuser.nationalID = vaccinereservation.ID 
                                     inner join vaccine on vaccine.ID = vaccinereservation.VaccineID 
-                                    where vaccinereservation.Center_ContactNum = {$this->contactNum} AND Date = CURDATE()");
-        return $list;
+                                    where vaccinereservation.Center_ContactNum = {$this->contactNum} AND Date = CURDATE()";
+        $list = $this->db->display($query);
+        $resCount = $this->db->check($query);
+        for ($x = 0; $x < $resCount; $x++) {
+            echo "<tr>";
+            echo "<td>" . $list[$x]['Vaccine User National ID'] . "</td>";
+            echo "<td>" . $list[$x]['Name Of Receiver'] . "</td>";
+            echo "<td>" . $list[$x]['Reservation Number'] . "</td>";
+            echo "<td>" . $list[$x]['Vaccine Name'] . "</td>";
+            echo "</tr>";
+        }
     }
 
 

@@ -1,3 +1,6 @@
+<?php
+include "../Controller/VaccinationCenterController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,10 +43,6 @@
     </div>
 </div>
 
-
-
-
-
 <div class="row">
     <div class="col">
         <div class="backcard">
@@ -57,43 +56,9 @@
 
                     <th>Vaccine name</th>
                 </tr>
-
-                <tr>
-                    <td>129483</td>
-
-                    <td>Ahmad</td>
-
-                    <td>20225007</td>
-
-                    <td>corona</td>
-                </tr>
-                <tr>
-                    <td>129483</td>
-
-                    <td>Ahmad</td>
-
-                    <td>20225007</td>
-
-                    <td>corona</td>
-                </tr>
-                <tr>
-                    <td>129483</td>
-
-                    <td>Ahmad</td>
-
-                    <td>20225007</td>
-
-                    <td>corona</td>
-                </tr>
-                <tr>
-                    <td>129483</td>
-
-                    <td>Ahmad</td>
-
-                    <td>20225007</td>
-
-                    <td>corona</td>
-                </tr>
+                <?php
+                    $modelInstance->listReservations();
+                ?>
             </table>
         </div>
     </div>
