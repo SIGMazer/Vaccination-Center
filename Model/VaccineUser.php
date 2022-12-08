@@ -14,7 +14,7 @@ class vaccineuser {
 
         session_start();
         //Retrieving user's main data from the database
-        $sql = "SELECT * FROM vaccineuser WHERE UserID = {$_SESSION['UserID']}";
+        $sql = "SELECT * FROM vaccineuser WHERE UserID = {$_SESSION['id']}";
         $row = $this->db->select($sql);
         $this->name=$row['Name']; //User's name
         $this->doses=$row['DoseNumber']; //Number of doses
@@ -22,7 +22,7 @@ class vaccineuser {
         $this->SecondDoseDate=$row['SecondDoseDate']; //Second dose's allowed date (or later)
 
         //Retrieving the vaccine reservation's details (if available)
-        $sql = "SELECT * FROM vaccineuser, vaccinereservation WHERE UserID = {$_SESSION['UserID']}";
+        $sql = "SELECT * FROM vaccineuser, vaccinereservation WHERE UserID = {$_SESSION['id']}";
         $count = $this->db->check($sql);
         if ($count > 0) {
             $this->reserveStatus = true; //This will be useful to hide the reservation panel
