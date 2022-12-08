@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #c0dcda;
+    height: 100vh;
+    font-family: Arial, Arial, Helvetica, sans-serif ;
+}
+#login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+}
+
+#signup .container #signup-row #signup-column #signup-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    height: auto;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+}
+#signup .container #signup-row #signup-column #signup-box #signup-form {
+    padding: 20px;
+
+}
+#login .container #signup-row #signup-column #login-box #signup-form #login-link {
+    margin-top: -85px;
+}
