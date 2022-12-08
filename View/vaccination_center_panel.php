@@ -1,5 +1,7 @@
 <?php
-include "../Controller/VaccinationCenterController.php"
+if (!empty($_SESSION['username']) && $_SESSION['type'] == 2)
+    {
+        include "../Controller/VaccinationCenterController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +19,12 @@ include "../Controller/VaccinationCenterController.php"
 </div>
 
 <div class="row">
-
     <div class="col">
         <div class="cardbody">
             <form action="../Controller/VaccinationCenterController.php" method="post">
                 <p>Reservation No. : </p>
                 <p><input  type="text" name="res_no" placeholder="reservation number"></p>
+                <span style="color:red"><?php echoError('err'); ?></span><br>
                 <input type="submit" value="Search" name="res_find" class="btn btn-primary">
             </form>
         </div>
@@ -32,10 +34,20 @@ include "../Controller/VaccinationCenterController.php"
     <div class="col">
         <div class="cardbody">
             <p>
-            <form action="../Controller/VaccinationCenterController.php" method="post">
-                <p class="card-text">User's name : </p>
-                <p class="card-text">National ID :</p>
-                <p class="card-text">Vaccine name : </p>
+            <form action="../Controller/VaccinationCenterController.php" method="post" enctype="multipart/form-data">
+                <p class="card-text">User's name : <?php echoDetails('NameUser'); ?></p>
+                <p class="card-text">National ID : <?php echoDetails('NatID'); ?></p>
+                <p class="card-text">Vaccine name : <?php echoDetails('NameVac'); ?></p>
+                <?php
+                    if (isset($_SESSION['Doses'])) {
+                        if ($_SESSION['Doses'] == 1) {
+                ?>
+                <input type="file" name="file"><br>
+                <?php
+                        }
+                    }
+                ?>
+                <span style="color:red"><?php echoError('uerr'); ?></span><br>
                 <input type="submit" name="res_confirm" value="Confirm" class="btn btn-primary">
             </form>
             </>
@@ -66,3 +78,8 @@ include "../Controller/VaccinationCenterController.php"
 </div>
 </body>
 </html>
+<?php
+    }
+else {
+    header("location: ../index.php");
+}

@@ -36,37 +36,48 @@ Class VaccinationCenterModel {
     }
 
 
-    function  findReservation($reservationNumber){
+    function findReservation($reservationNumber){
+        if ($this->db->check("SELECT * FROM vaccinereservation WHERE ID = '$reservationNumber'")) {
+            $reservation = $this->db->select("select * from vaccinereservation where ID = '$reservationNumber'");
+            $nationalID = $reservation["User_NationalID"];
+            $nameOfUser = $this->db->select("select Name from VaccineUser where nationalID = {$nationalID}")["Name"];
+            $doseNumber = $this->db->select("SELECT DoseNumber FROM VaccineUser WHERE nationalID = {$nationalID}")["DoseNumber"];
+            $nameOfVaccine = $this->db->select("select Name from Vaccine where Vaccine.ID = {$reservation['VaccineID']}")["Name"];
+            $VaccineID = $this->db->select("select ID from Vaccine where Vaccine.ID = {$reservation['VaccineID']}")["ID"];
 
-        $reservation = $this->db->select("select * from vaccinereservation where ID = {$reservationNumber}");
-        $nationalID = $reservation['User_NationalID'];
-        $nameOfUser = $this->db->select("select Name from VaccineUser where nationalID = {$nationalID}")["Name"];
-        $nameOfVaccine = $this->db->select("select Name from Vaccine where Vaccine.ID = {$reservation['VaccineID']}")["Name"];
-
-        session_start();
-        $_SESSION['ResID']= $reservationNumber;
-        $_SESSION['NatID']= $nationalID;
-        $_SESSION['NameUser']= $nameOfUser;
-        $_SESSION['NameVac']= $nameOfVaccine;
+            session_start();
+            $_SESSION['ResID']= $reservationNumber;
+            $_SESSION['NatID']= $nationalID;
+            $_SESSION['Doses']= $doseNumber;
+            $_SESSION['NameUser']= $nameOfUser;
+            $_SESSION['NameVac']= $nameOfVaccine;
+            $_SESSION['VacID'] = $VaccineID;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 
-    function  confirmReservation($reservationNumber){
+    function  confirmReservation($reservationNumber, $file){
 
         $doseNum = $this->db->select("select DoseNumber from vaccineuser where nationalID = {$_SESSION['NatID']}")["DoseNumber"]+1;
         $this->db->update("update vaccineuser set DoseNumber = {$doseNum} where nationalID = {$_SESSION['NatID']}");
 
         if($doseNum==1)
         {
-            $gap = $this->db->select("select Gap from vaccine where Name = {$_SESSION['NameVac']}")["Gap"];
+            $gap = $this->db->select("select Gap from vaccine where ID = " . $_SESSION['VacID'])["Gap"];
             $this->db->update("update vaccineuser set SecondDoseDate = DATE_ADD(CURDATE(),INTERVAL {$gap} DAY) where nationalID = {$_SESSION['NatID']}");
         }
         else if ($doseNum==2)
         {
-
+            $this->db->update("UPDATE vaccineuser SET ReservationPath = '$file' WHERE nationalID = {$_SESSION['NatID']}");
         }
 
         $this->db->delete("delete from vaccinereservation where ID = {$_SESSION['ResID']}");
+
+        unset($_SESSION['ResID'], $_SESSION['NatID'], $_SESSION['NameUser'], $_SESSION['NameVac'], $_SESSION['VacID'], $_SESSION['Doses']);
     }
 
 }
