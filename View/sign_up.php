@@ -1,7 +1,7 @@
 <?php
 include '../Model/LoginRegModel.php';
+include '../Controller/MiscController.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,10 +46,7 @@ include '../Model/LoginRegModel.php';
                         <p>City :
                         <label for="city-names"></label>
                             <select name="city" id="city-names">
-                                <option value="1" >cairo</option>
-                                <option value="2" >spaniol</option>
-                                <option value="3" >alex</option>
-                                <option value="4" >giza</option>
+                                <?php echoCityList(); ?>
                             </select></p>
                         <div class="form-group">
                             <br>

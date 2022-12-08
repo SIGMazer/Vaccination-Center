@@ -1,3 +1,4 @@
+<?php include "Controller/MiscController.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,13 +31,9 @@
                             <th scope="col">Type</th>
                         </tr>
 
-                        <tr>
-                            <td>1007</td>
-                            <td>Ahmad dodo</td>
-                            <td>---2102617</td>
-                            <td>dodo</td>
-                            <td>dodo</td>
-                        </tr>
+                        <?php
+                            echoLandingTable();
+                        ?>
 
                     </table>
                 </div>
