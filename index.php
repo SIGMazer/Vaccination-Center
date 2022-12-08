@@ -25,13 +25,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1007</td>
-                                    <td>Ahmad dodo</td>
-                                    <td>---2102617</td>
-                                    <td>dodo</td>
-                                    <td>dodo</td>
-                                </tr>
+                                <?php
+                                    include_once "Controller/MiscController.php";
+                                    echoLandingTable();
+                                ?>
                             </tbody>
                         </table>
                     </div>
