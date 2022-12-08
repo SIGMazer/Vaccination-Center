@@ -85,10 +85,10 @@ class adminModel {
                   <option>Government</option>
                   <option>Private</option>
                   </select></td>";
-            echo "<td><input type = 'hidden' name = 'contactnum' value = '{$vcList[$x]['ContactNum']}'></td>";
-            echo "<td><input type = 'hidden' name = 'uID' value = '{$vcList[$x]['UserID']}'></td>";
-            echo "<td><input type = 'submit' name = 'update' value = 'update' class='btn btn-primary'></td>";
-            echo "<td><input type = 'submit' name = 'delete' value = 'delete' class='btn btn-primary'></td>";
+            echo "<input type = 'hidden' name = 'contactnum' value = '{$vcList[$x]['ContactNum']}'>";
+            echo "<input type = 'hidden' name = 'uID' value = '{$vcList[$x]['UserID']}'>";
+            echo "<td><input type = 'submit' name = 'update' value = 'Update' class='btn btn-primary'></td>";
+            echo "<td><input type = 'submit' name = 'delete' value = 'Delete' class='btn btn-primary'></td>";
             echo "</form>";
             echo "</tr>";
         }

@@ -1,3 +1,7 @@
+<?php
+include "../Controller/vclistController.php";
+include "../Controller/MiscController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cardhead">
-                    <h>Admin name</h>
+                    <h>Find a vaccination center</h>
                 </div>
             </div>
         </div>
@@ -19,15 +23,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cardbody">
-                    <p>Find Vaccination center</p>
-                    <form action="" method="post">
+                    <form action="../Controller/vclistController.php" method="post">
                         <p>City :
                             <label for="city-names"></label>
                             <select name="city_find" id="city-names">
-                                <option >cairo</option>
-                                <option >spaniol</option>
-                                <option >alex</option>
-                                <option >giza</option>
+                                <?php
+                                echoCityList();
+                                ?>
                             </select></p>
                         <input type="submit" value="Search" name="city_search" class="btn btn-primary">
                     </form>
@@ -35,42 +37,43 @@
             </div>
         </div>
 
+        <?php
+        //Showing and hiding when searching
+        session_start();
+        if (isset($_SESSION["cID"]) && !empty($_SESSION["cID"])) {
+        ?>
         <div class="row">
             <div class="col">
                 <div class="cardbody">
-                    <form action="" method="post">
-                        <p-head>Vaccination center details:
-                            <input type="submit" value="Update" name="city_update" class="btn btn-primary">
-                            <input type="submit" value="Delete" name="city_delete" class="btn btn-primary">
-                        </p-head>
-                    </form>
+                    <p>Results in <?php echoCityName(); ?></p>
                 </div>
             </div>
         </div>
+        <?php
+        }
+        ?>
 
         <div class="row">
             <div class="col">
                 <div class="cardbody">
                     <div class="backcard">
-                        <table class="table table-bordered table-hover">
+                        <span style="color: red"><?php echoError(); ?></span>
+                        <table class="table table-bordered">
+                            <thead>
                             <tr>
-                                <th scope="col">Reservation No. </th>
                                 <th scope="col">Name</th>
-                                <th scope="col">National ID</th>
-                                <th scope="col">Vaccine name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Contact number</th>
+                                <th scope="col">Type</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
-
-                            <tr>
-                                <td>1007</td>
-                                <td>Ahmad</td>
-                                <td>---2102617</td>
-                                <td>dodo</td>
-                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php search(); ?>
+                            </tbody>
                         </table>
                     </div>
-                    <form action="" method="post">
-                        <input type="submit" value="Update" name="update_submit" class="btn btn-primary">
-                    </form>
                 </div>
             </div>
         </div>
