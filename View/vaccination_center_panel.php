@@ -1,7 +1,5 @@
 <?php
-if (!empty($_SESSION['username']) && $_SESSION['type'] == 2)
-    {
-        include "../Controller/VaccinationCenterController.php";
+include "../Controller/VaccinationCenterController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +40,7 @@ if (!empty($_SESSION['username']) && $_SESSION['type'] == 2)
                     if (isset($_SESSION['Doses'])) {
                         if ($_SESSION['Doses'] == 1) {
                 ?>
+                <p style="color: #20c997">This user is eligible for the second dose</p>
                 <input type="file" name="file"><br>
                 <?php
                         }
@@ -78,8 +77,3 @@ if (!empty($_SESSION['username']) && $_SESSION['type'] == 2)
 </div>
 </body>
 </html>
-<?php
-    }
-else {
-    header("location: ../index.php");
-}
