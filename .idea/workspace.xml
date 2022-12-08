@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be3b459f-cc9c-4d14-bfb2-3aafd572b34c" name="Changes" comment="">
+    <list default="true" id="be3b459f-cc9c-4d14-bfb2-3aafd572b34c" name="Changes" comment="commiting untracked files to checkout onto the release branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/Css/style_sheet1.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/Css/style_sheet1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/sign_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Include/vacdb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Include/vacdb.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VaccinationCenterModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/VaccinationCenterModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/vaccination_center_panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/vaccination_center_panel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +53,6 @@
       <option name="presentableId" value="Default" />
       <updated>1670439651543</updated>
       <workItem from="1670439655338" duration="3931000" />
-      <workItem from="1670495555744" duration="1607000" />
     </task>
     <servers />
   </component>

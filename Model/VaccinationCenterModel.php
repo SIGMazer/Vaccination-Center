@@ -9,7 +9,8 @@ Class VaccinationCenterModel {
     function __construct() {
         include_once'../Include/DatabaseClass.php';
         $this->db = new database();
-        $data = $this->db->select('select * from vaccinationcenter where UserID = "$_SESSION["type"]"');
+        session_start();
+        $data = $this->db->select("select * from vaccinationcenter where UserID = {$_SESSION['id']}");
         $this->name = $data['Name'];
         $this->contactNum = $data['ContactNum'];
     }
@@ -21,19 +22,15 @@ Class VaccinationCenterModel {
 
 
     function  listReservations(){
-        $query = "select nationalID as 'Vaccine User National ID', vaccineuser.Name as 'Name Of Receiver', 
-                                    vaccinereservation.ID as 'Reservation Number', vaccine.Name as 'Vaccine Name' from vaccineuser 
-                                    inner join vaccinereservation on vaccineuser.nationalID = vaccinereservation.ID 
-                                    inner join vaccine on vaccine.ID = vaccinereservation.VaccineID 
-                                    where vaccinereservation.Center_ContactNum = {$this->contactNum} AND Date = CURDATE()";
+        $query = "SELECT vaccineuser.Name as 'Name', vaccinereservation.User_NationalID as 'NationalID', vaccine.Name as 'Vaccine', vaccinereservation.ID as 'resNumber' FROM vaccinereservation INNER JOIN vaccineuser ON vaccineuser.NationalID = vaccinereservation.User_NationalID INNER JOIN vaccine ON vaccine.ID = vaccinereservation.VaccineID WHERE vaccinereservation.Center_ContactNum = {$this->contactNum} AND vaccinereservation.Date = CURRENT_DATE";
         $list = $this->db->display($query);
         $resCount = $this->db->check($query);
         for ($x = 0; $x < $resCount; $x++) {
             echo "<tr>";
-            echo "<td>" . $list[$x]['Vaccine User National ID'] . "</td>";
-            echo "<td>" . $list[$x]['Name Of Receiver'] . "</td>";
-            echo "<td>" . $list[$x]['Reservation Number'] . "</td>";
-            echo "<td>" . $list[$x]['Vaccine Name'] . "</td>";
+            echo "<td>" . $list[$x]['resNumber'] . "</td>";
+            echo "<td>" . $list[$x]['Name'] . "</td>";
+            echo "<td>" . $list[$x]['NationalID'] . "</td>";
+            echo "<td>" . $list[$x]['Vaccine'] . "</td>";
             echo "</tr>";
         }
     }
