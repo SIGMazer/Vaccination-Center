@@ -37,11 +37,6 @@ include "../Controller/MiscController.php";
             </div>
         </div>
 
-        <?php
-        //Showing and hiding when searching
-        session_start();
-        if (isset($_SESSION["cID"]) && !empty($_SESSION["cID"])) {
-        ?>
         <div class="row">
             <div class="col">
                 <div class="cardbody">
@@ -49,9 +44,6 @@ include "../Controller/MiscController.php";
                 </div>
             </div>
         </div>
-        <?php
-        }
-        ?>
 
         <div class="row">
             <div class="col">

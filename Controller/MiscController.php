@@ -39,11 +39,13 @@ function echoVaccineList() {
 }
 
 function echoCityName() {
-    //session_start();
+    session_start();
     if (isset($_SESSION["cID"])) {
         include_once '../Include/DatabaseClass.php';
         $db = new database();
         $name = $db->select("SELECT * FROM city where ID = {$_SESSION["cID"]}")['Name'];
         echo $name;
+    } else {
+        return "none";
     }
 }
