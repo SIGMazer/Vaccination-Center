@@ -1,17 +1,17 @@
 <?php
 
-    if(isset($_POST["reg_submit"]))
+    if(isset($_POST["submit"]))
     {
         include '../Model/LoginRegModel.php';
 
         $reg = new LoginRegModel();
-        $userName = $_POST["reg_username"];
-        $password = $_POST["reg_password"];
-        $name =$_POST["reg_name"] ;
+        $userName = $_POST["username"];
+        $password = $_POST["password"];
+        $name =$_POST["name"] ;
         $cityID = 1;
-        $email = $_POST["reg_email"];
-        $nationalID = $_POST["reg_nationalID"];
-        $phoneNUmber = $_POST["reg_phonenumber"];
+        $email = $_POST["email"];
+        $nationalID = $_POST["nationalID"];
+        $phoneNUmber = $_POST["phone"];
 
         if(empty($userName) || empty($password) || empty($name) || empty($email) || empty($nationalID) || empty($phoneNUmber))
         {

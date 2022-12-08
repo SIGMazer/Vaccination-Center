@@ -1,6 +1,6 @@
 <?php
 
-    if(isset($_POST['login_submit']))
+    if(isset($_POST['submit']))
     {
 
 
@@ -8,8 +8,8 @@
 
         $login = new LoginRegModel();
 
-        $username = $_POST['login_username'];
-        $password = $_POST['login_password'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
         if (empty($username) || empty($password)) {
             header("location:http:../View/login.php?login=empty");
             exit();
