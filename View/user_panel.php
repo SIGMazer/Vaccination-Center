@@ -1,3 +1,7 @@
+<?php include "../Controller/vaccineuser.php"; 
+    include "../Controller/MiscController.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +14,8 @@
     <div class="row">
         <div class="col-12">
             <div class="cardhead">
-                <h>Welcome</h>
-                <p>Available vaccination center</p>
+                <h>Welcome, <?php $vaccineuser->getName(); ?></h>
+                
             </div>
         </div>
     </div>
@@ -20,14 +24,15 @@
     <div class="row">
         <div class="col">
             <div class="cardbody">
-                <form action="" method="post">
+                <form action="../Controller/vaccineuser.php" method="post">
                     <div class="row">
                         <div class="col-1"></div>
                         <div class="col">
                             <p>Center</p>
                             <p><label for="res_center"></label>
                                 <select name="reserve_center" id="res_center">
-                                    <option>kafr nsar</option>
+                                    <?php 
+                                    ?>
                                 </select>
                             </p>
                         </div>
@@ -35,7 +40,8 @@
                             <p>Reserve vaccine </p>
                             <label for="res_vaccine"></label>
                             <select name="reserve_vaccine" id="res_vaccine">
-                                <option>corona 69</option>
+                                <?php echoVaccineList();
+                                ?>
                             </select>
 
 
