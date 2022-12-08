@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="cardhead">
-                <h>Welcome, <?php $vaccineuser->getName(); ?></h>
+                <h> Welcome, <?php echo$vaccineuser->getName(); ?> </h>
                 
             </div>
         </div>
@@ -24,15 +24,15 @@
     <div class="row">
         <div class="col">
             <div class="cardbody">
-                <form action="../Controller/vaccineuser.php" method="post">
+                <?php if(!$vaccineuser->getReserveStatus()) {?>
+                <form action="../Controller/vaccineuser.php" method="post"> 
                     <div class="row">
                         <div class="col-1"></div>
                         <div class="col">
                             <p>Center</p>
                             <p><label for="res_center"></label>
                                 <select name="reserve_center" id="res_center">
-                                    <?php 
-                                    ?>
+                                    <option value=1234> VavvinationCenterHospital</option>
                                 </select>
                             </p>
                         </div>
@@ -53,7 +53,27 @@
                         <div class="col-1"></div>
                     </div>
                     <p><input type="submit" name="reserve_submit" class="btn btn-primary"></p>
-                </form>
+                    <?php 
+                    if(!isset($_GET['err'])) {
+                        exit();
+                    }
+                    else {
+                        if($_GET['err']==0) echo "<p class = 'error' style=color:red >Fill all inputs<p>";
+                    }
+                    ?>
+                </form> 
+                <?php }
+                else
+                {
+                    echo "Your Reservation Number is : ";
+                    echo $vaccineuser->getReservation();
+
+
+                }
+                
+                
+                ?>
+                
             </div>
         </div>
     </div>

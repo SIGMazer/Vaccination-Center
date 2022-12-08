@@ -45,6 +45,8 @@ class vaccineuser {
     }
 
     public function getReservation(){
+        $sql = "SELECT ID FROM vaccinereservation WHERE User_NationalID= $this->nationalID";
+        $reservationNumber = $this->db->select($sql);
         return $this->reservationNumber;
     }
 
@@ -67,6 +69,7 @@ class vaccineuser {
         if ($insertion) {
             return true;
         }
+        
     }
 
     public function listVaccines(){

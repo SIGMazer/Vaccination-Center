@@ -5,7 +5,7 @@
     if(isset($_POST["reserve_submit"])){
 		
 	    if(!empty($_POST['reserve_center']) && !empty($_POST['reserve_vaccine'])&& !empty($_POST['reserve_date'])) {
-		    $center_contactNum=$_POST['reserve_center'];
+            $center_contactNum=$_POST['reserve_center'];
 		    $vaccine_ID=$_POST['reserve_vaccine'];
             $reservationDate=$_POST['reserve_date'];
 		    $true = $vaccineuser->reserveDose($center_contactNum,$vaccine_ID,$reservationDate);
@@ -16,8 +16,12 @@
 		    } else {
                 //The user has encountered an error (second dose error)
                 header("location: ../View/user_panel.php?err=0");
+                
             }
 	    }
+        else {
+            header("location: ../View/user_panel.php?err=0");   
+        }
     }
 	
 
