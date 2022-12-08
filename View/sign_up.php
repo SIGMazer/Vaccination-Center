@@ -45,11 +45,11 @@ include '../Model/LoginRegModel.php';
                         </div>
                         <p>City :
                         <label for="city-names"></label>
-                            <select name="reg_city" id="city-names">
-                                <option >cairo</option>
-                                <option >spaniol</option>
-                                <option >alex</option>
-                                <option >giza</option>
+                            <select name="city" id="city-names">
+                                <option value="1" >cairo</option>
+                                <option value="2" >spaniol</option>
+                                <option value="3" >alex</option>
+                                <option value="4" >giza</option>
                             </select></p>
                         <div class="form-group">
                             <br>
@@ -58,7 +58,7 @@ include '../Model/LoginRegModel.php';
                         <div id="login-link" class="text-right" >
                             <a href="../View/login.php" >Login</a>
                         </div>
-                        
+
                         <?php
                         if(!isset($_GET['signup'])) {
                             exit();

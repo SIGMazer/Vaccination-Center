@@ -8,9 +8,9 @@
         $userName = $_POST["username"];
         $password = $_POST["password"];
         $name =$_POST["name"] ;
-        $cityID = 1;
+        $cityID =$_POST['city'];
         $email = $_POST["email"];
-        $nationalID = $_POST["nationalID"];
+        $nationalID = $_POST["id"];
         $phoneNUmber = $_POST["phone"];
 
         if(empty($userName) || empty($password) || empty($name) || empty($email) || empty($nationalID) || empty($phoneNUmber))
