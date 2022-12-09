@@ -23,6 +23,13 @@
             header("location: ../View/user_panel.php?err=0");   
         }
     }
+
+    if (isset($_POST["download"])) {
+        //Downloading the file and forcing the 'save file' dialog box
+        header("Content-type:application/pdf");
+        header("Content-Disposition:attachment;filename=certificate.pdf");
+        readfile($vaccineuser->getReservePath());
+    }
 	
 
 ?>

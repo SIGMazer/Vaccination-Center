@@ -7,7 +7,8 @@ class vaccineuser {
     private $secondDoseDate;
     private $reserveStatus;
     private $reservationNumber;
-    
+    private $reservePath;
+
     function __construct() {
 		include_once'../Include/DatabaseClass.php';		
 		$this->db = new database();
@@ -19,7 +20,8 @@ class vaccineuser {
         $this->name=$row['Name']; //User's name
         $this->doses=$row['DoseNumber']; //Number of doses
         $this->nationalID=$row['NationalID']; //National ID, will be used in the reservation
-        $this->SecondDoseDate=$row['SecondDoseDate']; //Second dose's allowed date (or later)
+        $this->secondDoseDate=$row['SecondDoseDate']; //Second dose's allowed date (or later)
+        $this->reservePath=$row['ReservationPath'];
 
         //Retrieving the vaccine reservation's details (if available)
         $sql = "SELECT * FROM vaccineuser, vaccinereservation WHERE UserID = {$_SESSION['id']}";
@@ -44,6 +46,10 @@ class vaccineuser {
         return $this->reserveStatus;
     }
 
+    public function getReservePath() {
+        return $this->reservePath;
+    }
+
     public function getReservation(){
         $sql = "SELECT ID FROM vaccinereservation WHERE User_NationalID= $this->nationalID";
         $reservationNumber = $this->db->select($sql);
@@ -53,11 +59,7 @@ class vaccineuser {
     public function reserveDose($center_contactNum,$vaccine_ID,$reservationDate){
         //We only need to check in case the user is reserving the second dose
         if ($this->doses == 1) {
-            //Creating date objects
-            $resDate = date_create($reservationDate);
-            $secDoseDate = date_create($this->secondDoseDate);
-            $diff = date_diff($resDate, $secDoseDate);
-            if ($diff->days < 0) {
+            if ($reservationDate < $this->secondDoseDate) {
                 //In case of a negative difference, we stop the code
                 return false;
             }
