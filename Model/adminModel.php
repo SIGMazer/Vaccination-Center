@@ -88,7 +88,7 @@ class adminModel {
             echo "<input type = 'hidden' name = 'contactnum' value = '{$vcList[$x]['ContactNum']}'>";
             echo "<input type = 'hidden' name = 'uID' value = '{$vcList[$x]['UserID']}'>";
             echo "<td><input type = 'submit' name = 'update' value = 'Update' class='btn btn-primary'></td>";
-            echo "<td><input type = 'submit' name = 'delete' value = 'Delete' class='btn btn-primary'></td>";
+            echo "<td><input type = 'submit' name = 'delete' value = 'Delete' class='btn btn-danger'></td>";
             echo "</form>";
             echo "</tr>";
         }

@@ -40,6 +40,16 @@
 
         }
     }
+    else if (isset($_POST["logout"]))
+    {
+        include '../Model/LoginRegModel.php';
+
+        $logout = new LoginRegModel();
+
+        $logout->logout();
+
+        header("location: ..");
+    }
     else
     {
         header("location: ../View/login.php");

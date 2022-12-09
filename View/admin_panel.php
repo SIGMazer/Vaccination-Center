@@ -13,6 +13,13 @@ include "../Controller/AdminController.php";
 </head>
 
 <body>
+        <nav class="navbar sticky-top navbar-light justify-content-between" style="background-color: #20c997">
+            <a href="../index.php" class="link">Home</a>
+            <form action="../Controller/LoginController.php" method="post" class="form-inline">
+                <input type="submit" value="Log out" name="logout" class="btn btn-primary my-2 my-sm-0">
+            </form>
+        </nav>
+
         <div class="row">
           <div class="col-md-12">
             <div class="cardhead">
@@ -27,9 +34,11 @@ include "../Controller/AdminController.php";
                     <p class="card-head">Add city</p>
                     <form action = "../Controller/AdminController.php" method="post">
                         <p>Name</p>
-                        <p><input type="text" name="city_name" placeholder="City name"></p>
+                        <input type="text" name="city_name" placeholder="City name">
+                        <p></p>
                         <span style="color:red"><?php echoError('cerr'); ?></span>
-                        <p><input type="submit" name="city_add" value="Add" class="btn btn-primary"></p>
+                        <p></p>
+                        <input type="submit" name="city_add" value="Add" class="btn btn-primary">
                     </form>
                 </div>
             </div>
@@ -40,15 +49,15 @@ include "../Controller/AdminController.php";
                             <div class="row">
                                 <div class="col">
                                     <p>Name</p>
-                                    <p><input type="text" name="vaccine_name" placeholder="Vaccine name"></p>
+                                    <input type="text" name="vaccine_name" placeholder="Vaccine name">
                                 </div>
                                 <div class="col">
                                     <p>Gap between doses</p>
-                                    <p><input type="text" name="vaccine_gap" placeholder="Days"></p>
+                                    <input type="text" name="vaccine_gap" placeholder="Days">
                                 </div>
                                 <div class="col">
                                     <p>Precautions</p>
-                                    <p><input type="text" name="vaccine_precautions" placeholder="Precautions"></p>
+                                    <input type="text" name="vaccine_precautions" placeholder="Precautions">
                                 </div>
                             </div>
                             <span style="color:red"><?php echoError('verr'); ?></span><br>
@@ -67,7 +76,7 @@ include "../Controller/AdminController.php";
                                 <div class="row">
                                     <div class="col">
                                         <p>Name</p>
-                                        <p><input type="text" name="center_name" placeholder="Name"></p>
+                                        <input type="text" name="center_name" placeholder="Name">
                                     </div>
 
                                     <div class="col">
@@ -81,7 +90,7 @@ include "../Controller/AdminController.php";
 
                                     <div class="col">
                                         <p>Address</p>
-                                        <p><input type="text" name="center_address" placeholder="Address"></p>
+                                        <input type="text" name="center_address" placeholder="Address">
                                     </div>
 
                                     <div class="col">
@@ -129,7 +138,7 @@ include "../Controller/AdminController.php";
     </div>
     <div class="col-6">
         <div class="cardbody">
-                <a href="user_list.php"><button name="user_list" class="btn btn-primary"  >User's list</button></a>
+                <a href="user_list.php"><button name="user_list" class="btn btn-primary"  >Users list</button></a>
         </div>
 
     </div>

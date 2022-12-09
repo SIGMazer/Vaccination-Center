@@ -1,7 +1,6 @@
 <?php include "../Controller/vaccineuser.php"; 
     include "../Controller/MiscController.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,13 @@
     <link href="Css/Style_sheet.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar sticky-top navbar-light justify-content-between" style="background-color: #20c997">
+        <a href="../index.php" class="link">Home</a>
+        <form action="../Controller/LoginController.php" method="post" class="form-inline">
+            <input type="submit" value="Log out" name="logout" class="btn btn-primary my-2 my-sm-0">
+        </form>
+    </nav>
+
     <div class="row">
         <div class="col-12">
             <div class="cardhead">
@@ -52,12 +58,11 @@
                         <div class="col-1"></div>
                         <div class="col">
                             <p>Center</p>
-                            <p><label for="res_center"></label>
+                            <label for="res_center"></label>
                                 <select name="reserve_center" id="res_center">
                                     <?php echoCenterList();
                                     ?>
                                 </select>
-                            </p>
                         </div>
                         <div class="col">
                             <p>Reserve vaccine </p>
@@ -68,21 +73,18 @@
                             </select>
                         </div>
                         <div class="col">
-                            <p>Reservation date
-                                <input type="date" name="reserve_date" id="birthday"></p>
+                            <p>Reservation date</p>
+                                <input type="date" name="reserve_date" id="birthday" class="date">
                         </div>
                         <div class="col-1"></div>
                     </div>
-                    <p><input type="submit" name="reserve_submit" class="btn btn-primary"></p>
-                    <?php 
-                    if(!isset($_GET['err'])) {
-                        exit();
-                    }
-                    else {
+                    <?php
+                    if(isset($_GET['err'])) {
                         if($_GET['err']==0) echo "<p class = 'error' style=color:red >Fill all inputs<p>";
                         if($_GET['err']==1) echo "<p class = 'error' style=color:red >You're not allowed to reserve on this day<p>";
                     }
                     ?>
+                    <p><input type="submit" name="reserve_submit" class="btn btn-primary"></p>
                 </form> 
                 <?php
                 } else {

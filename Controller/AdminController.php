@@ -81,3 +81,8 @@ function echoError($errorName) {
         echo $errorList[$errorName][$_GET[$errorName]];
     }
 }
+
+@session_start();
+if (isset($_SESSION['cID']) && !empty($_SESSION['cID'])) {
+    unset($_SESSION['cID']);
+}

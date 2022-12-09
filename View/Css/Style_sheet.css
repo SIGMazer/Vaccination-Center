@@ -54,6 +54,7 @@ table{
 }
 
 td , th{
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     padding: 15px 20px;
     text-align: center;
 
@@ -85,6 +86,36 @@ input::placeholder{
 input{
     font-size: 20px;
 }
+
+.btn {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 .btn-primary{
-    background-color: rgb(60, 120, 233);
+    background-color: #1cdea4;
+    border-color: #20bf90;
+}
+
+.btn-primary:hover {
+    background-color: #1ec794;
+    border-color: #20bf90;
+}
+
+.link {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 16px;
+    font-weight: normal;
+    color: white;
+}
+
+.link:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+select, .date {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 16px;
+    font-weight: normal;
 }

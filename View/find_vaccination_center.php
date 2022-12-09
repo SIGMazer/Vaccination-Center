@@ -11,6 +11,12 @@ include "../Controller/MiscController.php";
     <link href="Css/Style_sheet.css" rel="stylesheet">
 </head>
 <body>
+        <nav class="navbar sticky-top navbar-light justify-content-between" style="background-color: #20c997">
+            <a href="admin_panel.php" class="link">Back to the admin panel</a>
+            <form action="../Controller/LoginController.php" method="post" class="form-inline">
+                <input type="submit" value="Log out" name="logout" class="btn btn-primary my-2 my-sm-0">
+            </form>
+        </nav>
 
         <div class="row">
             <div class="col-md-12">
