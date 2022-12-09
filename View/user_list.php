@@ -1,6 +1,10 @@
 <?php
 include "../Controller/userlistController.php";
 ?>
+<?php
+@session_start();
+if (isset($_SESSION['username']) && $_SESSION['type'] == 1) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,3 +56,8 @@ include "../Controller/userlistController.php";
 </body>
 </html>
 
+    <?php
+} else {
+    header("location: ..");
+}
+?>

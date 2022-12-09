@@ -9,7 +9,7 @@ Class VaccinationCenterModel {
     function __construct() {
         include_once'../Include/DatabaseClass.php';
         $this->db = new database();
-        session_start();
+        @session_start();
         $data = $this->db->select("select * from vaccinationcenter where UserID = {$_SESSION['id']}");
         $this->name = $data['Name'];
         $this->contactNum = $data['ContactNum'];

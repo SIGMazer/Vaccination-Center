@@ -1,4 +1,8 @@
-<?php include "../Controller/vaccineuser.php"; 
+<?php
+@session_start();
+if (isset($_SESSION['id']) && $_SESSION['type'] == 3) {
+?>
+<?php include "../Controller/vaccineuser.php";
     include "../Controller/MiscController.php";
 ?>
 <!DOCTYPE html>
@@ -102,6 +106,8 @@
     </div>
 </body>
 </html>
-
-
-
+<?php
+} else {
+    header("location: ..");
+}
+?>

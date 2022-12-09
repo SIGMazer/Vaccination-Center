@@ -1,4 +1,8 @@
 <?php
+@session_start();
+if (isset($_SESSION['id']) && $_SESSION['type'] == 2) {
+?>
+<?php
 include "../Controller/VaccinationCenterController.php";
 ?>
 <!DOCTYPE html>
@@ -84,3 +88,8 @@ include "../Controller/VaccinationCenterController.php";
 </div>
 </body>
 </html>
+<?php
+} else {
+    header("location: ..");
+}
+?>

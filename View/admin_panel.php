@@ -2,6 +2,10 @@
 include "../Controller/MiscController.php";
 include "../Controller/AdminController.php";
 ?>
+<?php
+@session_start();
+if (isset($_SESSION['id']) && $_SESSION['type'] == 1) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,3 +150,9 @@ include "../Controller/AdminController.php";
 
 </body>
 </html>
+
+    <?php
+} else {
+    header("location: ..");
+}
+?>

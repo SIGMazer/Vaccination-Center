@@ -13,7 +13,7 @@ class vaccineuser {
 		include_once'../Include/DatabaseClass.php';		
 		$this->db = new database();
 
-        session_start();
+        @session_start();
         //Retrieving user's main data from the database
         $sql = "SELECT * FROM vaccineuser WHERE UserID = {$_SESSION['id']}";
         $row = $this->db->select($sql);
