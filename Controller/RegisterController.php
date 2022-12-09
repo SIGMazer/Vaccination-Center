@@ -49,8 +49,12 @@
                        }
                        else
                        {
-                           $reg->registeration($userName,$password,$nationalID,$name,$cityID,$email,$phoneNUmber);
-                           header("location: ../View/login.php");
+                           $registration = $reg->registeration($userName,$password,$nationalID,$name,$cityID,$email,$phoneNUmber);
+                           if ($registration) {
+                               header("location: ../View/login.php");
+                           } else {
+                               header("location: ../View/sign_up.php?signup=exists");
+                           }
                        }
 
                    }

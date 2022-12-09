@@ -88,7 +88,11 @@ class LoginRegModel
             echo "<p class = 'error' style=color:red >Invalid national ID<p>";
             exit();
         }
-
+        if ($check == "exists")
+        {
+            echo "<p class = 'error' style=color:red >This username is already taken or this person is already registered<p>";
+            exit();
+        }
 
     }
 

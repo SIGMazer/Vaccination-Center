@@ -38,6 +38,17 @@ function echoVaccineList() {
     }
 }
 
+function echoCenterList() {
+    include_once '../Include/DatabaseClass.php';
+    $db = new database();
+    $query = "SELECT * FROM vaccinationcenter";
+    $cityList = $db->display($query);
+    $citySize = $db->check($query);
+    for ($x = 0; $x < $citySize; $x++) {
+        echo '<option value = "' . $cityList[$x]['ContactNum'] . '">' . $cityList[$x]['Name'] . '</option>';
+    }
+}
+
 function echoCityName() {
     session_start();
     if (isset($_SESSION["cID"])) {

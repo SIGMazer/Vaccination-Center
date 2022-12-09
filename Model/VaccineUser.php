@@ -64,7 +64,7 @@ class vaccineuser {
         }
         //Otherwise, create a reservation
         $sql = "INSERT INTO vaccinereservation (User_NationalID, Center_ContactNum, VaccineID, Date) 
-                VALUES ({$this->nationalID}, {$center_contactNum}, {$vaccine_ID}, {$reservationDate})";
+                VALUES ({$this->nationalID}, '$center_contactNum', {$vaccine_ID}, '$reservationDate')";
         $insertion = $this->db->insert($sql);
         if ($insertion) {
             return true;

@@ -15,7 +15,7 @@
                 header("location: ../View/user_panel.php");
 		    } else {
                 //The user has encountered an error (second dose error)
-                header("location: ../View/user_panel.php?err=0");
+                header("location: ../View/user_panel.php?err=1");
                 
             }
 	    }

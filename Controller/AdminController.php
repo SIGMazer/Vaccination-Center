@@ -46,17 +46,22 @@ if (isset($_POST["center_add"])) {
             //The password doesn't follow the requirements
             header('location: ../View/admin_panel.php?vcerr=2');
         } else {
-            include "../Model/adminModel.php";
-            $admin = new adminModel();
-            $addStatus = $admin->addVaccinationCenter($_POST["center_username"], $_POST["center_password"],
-                $_POST["center_name"], $_POST["center_city"], $_POST["center_address"],
-                $_POST["center_contactno"], $_POST["center_type"]);
-            if ($addStatus) {
-                //Adding the city is successful
-                header('location: ../View/admin_panel.php');
+            if (strlen($_POST["center_contactno"]) != 11) {
+                //The contact number isn't formed of 11 numbers
+                header('location: ../View/admin_panel.php?vcerr=3');
             } else {
-                //Adding the vaccination center failed (repeated vaccination name)
-                header('location: ../View/admin_panel.php?vcerr=1');
+                include "../Model/adminModel.php";
+                $admin = new adminModel();
+                $addStatus = $admin->addVaccinationCenter($_POST["center_username"], $_POST["center_password"],
+                    $_POST["center_name"], $_POST["center_city"], $_POST["center_address"],
+                    $_POST["center_contactno"], $_POST["center_type"]);
+                if ($addStatus) {
+                    //Adding the city is successful
+                    header('location: ../View/admin_panel.php');
+                } else {
+                    //Adding the vaccination center failed (repeated vaccination name)
+                    header('location: ../View/admin_panel.php?vcerr=1');
+                }
             }
         }
     } else {
@@ -71,7 +76,7 @@ function echoError($errorName) {
     $errorList = array("cerr" => array("Enter a name", "This city already exists"),
         "verr" => array("Enter all information", "This vaccine already exists"),
         "vcerr" => array("Enter all information", "This username or vaccination center already exist",
-            "The password should be longer than 7 letters, contain numbers and letters"));
+            "The password should be longer than 7 letters, contain numbers and letters", "The contact number should be 11 digits"));
     if (isset($_GET[$errorName])) {
         echo $errorList[$errorName][$_GET[$errorName]];
     }

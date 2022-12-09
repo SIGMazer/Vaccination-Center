@@ -67,7 +67,7 @@ include "../Controller/AdminController.php";
                                 <div class="row">
                                     <div class="col">
                                         <p>Name</p>
-                                        <p><input type="text" name="canter_name" placeholder="Name"></p>
+                                        <p><input type="text" name="center_name" placeholder="Name"></p>
                                     </div>
 
                                     <div class="col">
@@ -95,7 +95,7 @@ include "../Controller/AdminController.php";
                                 <div class="col">
                                     <p>Type</p>
                                     <p><label for="type-names"></label>
-                                        <select name="center_name" id="type-names">
+                                        <select name="center_type" id="type-names">
                                             <option>Government</option>
                                             <option>Private</option>
                                         </select>
@@ -104,12 +104,12 @@ include "../Controller/AdminController.php";
 
                                 <div class="col">
                                     <p>Username</p>
-                                    <input type="text" name="center_username" placeholder="username">
+                                    <input type="text" name="center_username" placeholder="Username">
                                 </div>
 
                                 <div class="col">
                                     <p>Password</p>
-                                    <input type="password" name="center_password" placeholder="password"/>
+                                    <input type="password" name="center_password" placeholder="Password"/>
                                 </div>
                             </div>
                         </div>

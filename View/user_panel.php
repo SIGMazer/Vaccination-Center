@@ -32,7 +32,8 @@
                             <p>Center</p>
                             <p><label for="res_center"></label>
                                 <select name="reserve_center" id="res_center">
-                                    <option value=1234> VavvinationCenterHospital</option>
+                                    <?php echoCenterList();
+                                    ?>
                                 </select>
                             </p>
                         </div>
@@ -43,11 +44,9 @@
                                 <?php echoVaccineList();
                                 ?>
                             </select>
-
-
                         </div>
                         <div class="col">
-                            <p>Birth date
+                            <p>Reservation date
                                 <input type="date" name="reserve_date" id="birthday"></p>
                         </div>
                         <div class="col-1"></div>
@@ -65,19 +64,13 @@
                 <?php }
                 else
                 {
-                    echo "Your Reservation Number is : ";
-                    echo $vaccineuser->getReservation();
-
-
+                    echo "<p>Your Reservation Number is : ";
+                    echo $vaccineuser->getReservation() . "</p>";
                 }
-                
-                
                 ?>
-                
             </div>
         </div>
     </div>
-
 </body>
 </html>
 
