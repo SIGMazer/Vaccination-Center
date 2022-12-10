@@ -55,7 +55,7 @@ class adminModel {
 
     public function listUsers() {
         $query = "SELECT Username, NationalID, city.Name as City, vaccineuser.Name as Name, Email, PhoneNumber 
-                FROM user INNER JOIN vaccineuser ON vaccineuser.UserID INNER JOIN city ON vaccineuser.CityID = city.ID
+                FROM user INNER JOIN vaccineuser ON vaccineuser.UserID = user.ID INNER JOIN city ON vaccineuser.CityID = city.ID
                 WHERE user.UserType = 3";
         $userList = $this->db->display($query);
         $userCount = $this->db->check($query);
