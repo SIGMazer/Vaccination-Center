@@ -81,10 +81,15 @@ class adminModel {
             echo "<td><input type = 'text' name = 'newName' value = '{$vcList[$x]['Name']}'></td>";
             echo "<td><input type = 'text' name = 'newAddress' value = '{$vcList[$x]['Address']}'></td>";
             echo "<td><input type = 'text' name = 'newContactNum' value = '{$vcList[$x]['ContactNum']}'></td>";
-            echo "<td><select name='newType' id='type-names'>
-                  <option>Government</option>
-                  <option>Private</option>
-                  </select></td>";
+            echo "<td><select name='newType' id='type-names'>";
+            if ($vcList[$x]['Type'] == 'Government') {
+                echo "<option selected='selected'>Government</option>";
+                echo "<option>Private</option>";
+            } else {
+                echo "<option>Government</option>";
+                echo "<option selected='selected'>Private</option>";
+            }
+            echo "</select></td>";
             echo "<input type = 'hidden' name = 'contactnum' value = '{$vcList[$x]['ContactNum']}'>";
             echo "<input type = 'hidden' name = 'uID' value = '{$vcList[$x]['UserID']}'>";
             echo "<td><input type = 'submit' name = 'update' value = 'Update' class='btn btn-primary'></td>";
