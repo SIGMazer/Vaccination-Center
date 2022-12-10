@@ -24,7 +24,8 @@ class vaccineuser {
         $this->reservePath=$row['ReservationPath'];
 
         //Retrieving the vaccine reservation's details (if available)
-        $sql = "SELECT * FROM vaccineuser, vaccinereservation WHERE UserID = {$_SESSION['id']}";
+        $sql = "SELECT * FROM vaccineuser INNER JOIN vaccinereservation ON vaccinereservation.User_NationalID = vaccineuser.NationalID 
+                WHERE vaccineuser.UserID = {$_SESSION['id']}";
         $count = $this->db->check($sql);
         if ($count > 0) {
             $this->reserveStatus = true; //This will be useful to hide the reservation panel
