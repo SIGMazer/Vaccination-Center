@@ -109,7 +109,7 @@ INSERT INTO `vaccine` (`ID`, `Name`, `Gap`, `Precautions`) VALUES
 
 CREATE TABLE `vaccinereservation` (
   `ID` int(10) NOT NULL,
-  `User_NationalID` int(14) NOT NULL,
+  `User_NationalID` bigint(255) NOT NULL,
   `Center_ContactNum` varchar(11) NOT NULL,
   `VaccineID` int(10) NOT NULL,
   `Date` date NOT NULL
@@ -129,7 +129,7 @@ INSERT INTO `vaccinereservation` (`ID`, `User_NationalID`, `Center_ContactNum`, 
 --
 
 CREATE TABLE `vaccineuser` (
-  `NationalID` int(14) NOT NULL,
+  `NationalID` bigint(255) NOT NULL,
   `UserID` int(10) NOT NULL,
   `CityID` int(10) NOT NULL,
   `Name` varchar(255) NOT NULL,
