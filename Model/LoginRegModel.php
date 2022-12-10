@@ -15,7 +15,6 @@ class LoginRegModel
         $duplicate = $this->db->select("SELECT * FROM vaccineuser,user WHERE  vaccineuser.NationalID ='$nationalId' OR user.Username ='$username'  ");
         if($duplicate > 0) // if user duplicated
         {
-            $this->error = "User is already exist.";
             return false;
         }
         else
