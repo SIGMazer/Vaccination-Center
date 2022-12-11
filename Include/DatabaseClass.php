@@ -7,7 +7,7 @@ class database {
     public $conn;
 
     function __construct() {
-        require_once 'connect.php';
+        require 'connect.php';
         $this->host = $host;
         $this->user = $dbUser;
         $this->password = $dbPass;

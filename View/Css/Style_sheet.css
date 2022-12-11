@@ -1,0 +1,121 @@
+* {
+    list-style-type: none;
+    text-decoration: none;
+    font-family: Arial, Arial, Helvetica, sans-serif ;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #c0dcda;
+    display: grid;
+}
+
+.backcard{
+    margin: 20px;
+    background-color: #fafafa;
+}
+.cardbody {
+    background-color: #fafafa;
+    text-align: center;
+    margin: 10px;
+    padding:10px;
+    display: grid;
+    box-shadow: 2px 2px 2px  #20c997 , 2px 2px 2px 2px #ffffff;
+    border-radius: 20px;
+
+}
+
+.cardhead{
+    background-color: #20c997;
+    text-align: center;
+    margin: 33px;
+    text-align: center;
+    padding:30px;
+    box-shadow: 2px 2px 4px #fafafa;
+}
+h{
+    font-size: 40px;
+    color: #ffffff;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+p{
+    font-size: 25px;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: #000000;
+    padding: 5px;
+    margin: 5px;
+    font-size: 25px;
+
+}
+table{
+    text-align: center;
+}
+
+td , th{
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    padding: 15px 20px;
+    text-align: center;
+
+
+}
+th{
+    width: 30%;
+    background-color: #20c997;
+    color: #fafafa;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight: 200;
+}
+tr{
+    border: #0b2e13;
+    width: 100%;
+    background-color: #fafafa;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+tr:nth-child(even){
+    background-color: #eeeeee;
+}
+input::placeholder{
+    text-align: center;
+    font-size: 20px;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: #58005A;
+}
+
+input{
+    font-size: 20px;
+}
+
+.btn {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.btn-primary{
+    background-color: #1cdea4;
+    border-color: #20bf90;
+}
+
+.btn-primary:hover {
+    background-color: #1ec794;
+    border-color: #20bf90;
+}
+
+.link {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 16px;
+    font-weight: normal;
+    color: white;
+}
+
+.link:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+select, .date {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 16px;
+    font-weight: normal;
+}
